@@ -1,3 +1,4 @@
+import Watcher from '../watcher/index.js';
 export default class Observer {
     constructor(data) {
         Object.keys(data).forEach( key => {

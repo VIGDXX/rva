@@ -1,7 +1,7 @@
 import Observer from './observer/index.js'
 import Compliler from './compiler/index.js'
 
-class Wind {
+export default class Rva {
     constructor(options) {
         this.$options = options;
         this.$data = options.data;
@@ -12,3 +12,4 @@ class Wind {
         new Compliler();
     }   
 }
+window.Rva = Rva
