@@ -1,9 +1,10 @@
 const path = require('path');
 
 module.exports = {
+  mode: 'production',
   entry: './src/index.js',
   output: {
-    filename: 'wind.js',
+    filename: 'rva.js',
     path: path.resolve(__dirname, 'dist')
   },
   module: {
@@ -15,7 +16,8 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             cacheDirectory:true,
-            presets: ['env','transform-runtime']
+            presets: ['env'],
+            plugins: ['transform-runtime']
           }
         }
       }

@@ -1,5 +1,5 @@
 import Observer from './observer/index.js'
-import Compliler from './compliler/index.js'
+import Compliler from './compiler/index.js'
 
 class Wind {
     constructor(options) {

@@ -4,7 +4,7 @@
   "description": "a min mvvm framework",
   "main": "index.js",
   "scripts": {
-    "test": "test",
+    "start": "webpack --config webpack.config.js",
     "dev": "webpack"
   },
   "browserslist": [
