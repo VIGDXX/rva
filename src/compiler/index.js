@@ -5,9 +5,7 @@ export default class Compiler {
         this.el = this.node2Fragment(document.querySelector(el));
         this.data = data;
         this.init();
-        new Watcher(x => {
-            console.log(x)
-        })
+        document.querySelector(el).appendChild(this.el);
     }
 
     init() {
@@ -16,16 +14,19 @@ export default class Compiler {
             let text = node.textContent;
             const reg = /\{\{(.*)\}\}/;
             if(node.nodeType == 3 && reg.test(text)) {
-                compileText(text,RegExp.$1)
+                this.compileText(node,RegExp.$1)
             }
         } )
     }
 
-    compileText() {
-
+    compileText(node,value) {
+        node.textContent = this.data[value];
+        new Watcher( (newVal) => {
+            node.textContent = newVal;
+        })
     }
 
-    node2Fragment() {
+    node2Fragment(el) {
         let fragment = document.createDocumentFragment();
         let child;
         while (child = el.firstChild) {

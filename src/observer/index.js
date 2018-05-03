@@ -6,7 +6,8 @@ export default class Observer {
     }
 
     addListener() {
-        Object.keys(this.data).forEach(key => {
+        let data = this.data;
+        Object.keys(data).forEach(key => {
             let oldVal = data[key];
             Object.defineProperty(data, key, {
                 enumerable: true, // 可枚举
@@ -20,7 +21,7 @@ export default class Observer {
                         let watcher = new Watcher(x => {
                             console.log(x)
                         });
-                        watcher.update();
+                        watcher.update(newVal);
                     }
                     return newVal
                 }
