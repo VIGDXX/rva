@@ -21,8 +21,8 @@ export default class Compiler {
 
     compileText(node,value) {
         node.textContent = this.data[value];
-        new Watcher( (newVal) => {
-            node.textContent = newVal;
+        let watcher = new Watcher(this.data, value, () => {
+            node.textContent = this.data[value];
         })
     }
 
